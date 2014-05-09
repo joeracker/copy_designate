@@ -1,5 +1,10 @@
 #!/bin/bash 
 # This script will probably onle work for a mac
+# You should run this command to disable spotlight:
+# sudo mdutil -a -i off
+# To re-enable:
+# sudo mdutil -a -i on
+
 
 # must be 8 characters or less
 USB_NAME="DESIG"
@@ -18,6 +23,7 @@ diskutil rename $OLD_NAME $USB_NAME
 echo "copying files over"
 #cp -R USB/*.* /Volumes/$USB_NAME/
 rsync -r --progress USB/ $path_to_usb
+sync
 
 echo "Ejecting drive."
 diskutil eject $USB_NAME
