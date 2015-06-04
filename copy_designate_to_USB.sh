@@ -5,6 +5,7 @@
 # To re-enable:
 # sudo mdutil -a -i on
 
+<<<<<<< HEAD
 # path to docs
 SOURCE_DATA=usb_contents/
 
@@ -13,6 +14,12 @@ USB_NAME="DESIG"
 
 OLD_NAME=DISK_IMG
 OLD_NAME2="NO NAME"
+=======
+
+# must be 8 characters or less
+USB_NAME="DESIG"
+OLD_NAME=DISK_IMG
+>>>>>>> 4f5d7cf437e56c195f7fccc9f05a31c314d0c14b
 
 date_append="$(date +%s)"
 date_append=${date_append#1399}
@@ -26,7 +33,11 @@ diskutil rename $OLD_NAME $USB_NAME
 
 echo "copying files over"
 #cp -R USB/*.* /Volumes/$USB_NAME/
+<<<<<<< HEAD
 rsync -r --progress $SOURCE_DATA $path_to_usb
+=======
+rsync -r --progress USB/ $path_to_usb
+>>>>>>> 4f5d7cf437e56c195f7fccc9f05a31c314d0c14b
 sync
 
 echo "Ejecting drive."
